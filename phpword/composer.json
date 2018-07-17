@@ -1,0 +1,5 @@
+{
+    "require": {
+       "phpoffice/phpword": "v0.14.*"
+    }
+}
