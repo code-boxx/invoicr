@@ -26,7 +26,7 @@ SOFTWARE.
 ---
 ## HOW TO USE?
 ---
-1) Edit invoicr/invoicr.php, change (C1) company information to your own.
+1) Edit invlib/invoicr.php, change (C1) company information to your own.
 2) That's all. Check out example.php.
 
 

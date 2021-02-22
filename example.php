@@ -1,6 +1,6 @@
 <?php
 // (A) LOAD INVOICR
-require "invoicr/invoicr.php";
+require "invlib/invoicr.php";
 
 // (B) SET INVOICE DATA
 // (B1) COMPANY INFORMATION
