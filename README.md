@@ -2,7 +2,7 @@
 ## LICENSE
 ---
 
-Copyright 2018 by Code Boxx
+Copyright by Code Boxx
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,22 +24,20 @@ SOFTWARE.
 
 
 ---
-## MORE
+## HOW TO USE?
+---
+1) Edit invoicr/invoicr.php, change (C1) company information to your own.
+2) That's all. Check out example.php.
+
+
+---
+## DOCUMENTATION
 ---
 Please visit https://code-boxx.com/invoicr-php-invoice-generator for more for more!
 
 
 ---
-## WHAT'S NEW IN 1.1
----
-- PDF templates now use sans-serif fonts properly.
-- All HTML templates now use sans-serif fonts.
-- Added DOCX templates - Strawberry, Lime, Blueberry, Apple
-- Fixed the example... Had a missing logo previously
-
-
----
 ## CREDITS
 ---
-PDF output will not be possible without MPDF > http://www.mpdf1.com/
-DOCX output will not be possible without PHPWORD > https://github.com/PHPOffice/PHPWord
+PDF output with MPDF - https://mpdf.github.io//
+DOCX output with PHPWORD - https://github.com/PHPOffice/PHPWord
