@@ -9,9 +9,9 @@ $tableStyle = [
 // (B) COMPANY
 $section = $pw->addSection();
 $table = $section->addTable($tableStyle);
-$cell = $table->addRow()->addCell();
+$cell = $table->addRow()->addCell(2500);
 $cell->addImage($this->company[1], ['width'=>120]);
-$cell = $table->addCell();
+$cell = $table->addCell(2500);
 for ($i=2;$i<count($this->company);$i++) {
 	$cell->addText($this->company[$i], [], [
 		'spaceAfter' => 0,

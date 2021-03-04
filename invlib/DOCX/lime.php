@@ -9,7 +9,7 @@ $tableStyle = [
 // (B) COMPANY
 $section = $pw->addSection();
 $table = $section->addTable($tableStyle);
-$cell = $table->addRow()->addCell();
+$cell = $table->addRow()->addCell(2500);
 $cell->addImage($this->company[1], ['width'=>120]);
 for ($i=2;$i<count($this->company);$i++) {
 	$cell->addText($this->company[$i], 
@@ -19,7 +19,7 @@ for ($i=2;$i<count($this->company);$i++) {
 }
 
 // (C) INVOICE INFO
-$cell = $table->addCell();
+$cell = $table->addCell(2500);
 $cell->addText("SALES INVOICE",
 	['color'=>"bcd030", 'bold'=>true, 'size'=>20],
 	['spaceAfter' => 10, 'spaceBefore'=>0, 'alignment' => \PhpOffice\PhpWord\SimpleType\Jc::RIGHT]
@@ -86,7 +86,7 @@ if (count($this->totals)>0) { foreach ($this->totals as $t) {
 if (count($this->notes)>0) {
 	$section->addText(" ");
 	$table = $section->addTable($tableStyle);
-	$cell = $table->addRow()->addCell();
+	$cell = $table->addRow()->addCell(5000);
 	foreach ($this->notes as $n) {
 		$cell->addText($n,[],['spaceAfter' => 0, 'spaceBefore'=>0]);
 	}

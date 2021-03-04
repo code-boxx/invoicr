@@ -9,9 +9,9 @@ $tableStyle = [
 // (B) COMPANY
 $section = $pw->addSection();
 $table = $section->addTable($tableStyle);
-$cell = $table->addRow()->addCell();
+$cell = $table->addRow()->addCell(2500);
 $cell->addImage($this->company[1], ['width'=>120]);
-$cell = $table->addCell();
+$cell = $table->addCell(2500);
 for ($i=2;$i<count($this->company);$i++) {
 	$cell->addText($this->company[$i], [], [
 		'spaceAfter' => 0,
@@ -26,21 +26,21 @@ $section->addText("SALES INVOICE",
 
 // (D) BILL TO
 $table = $section->addTable($tableStyle);
-$cell = $table->addRow()->addCell();
+$cell = $table->addRow()->addCell(1667);
 $cell->addText("BILL TO",['bold'=>true],['spaceAfter' => 0, 'spaceBefore'=>0]);
 foreach ($this->billto as $b) { 
 	$cell->addText($b,[],['spaceAfter' => 0, 'spaceBefore'=>0]);
 }
 
 // (E) SHIP TO
-$cell = $table->addCell();
+$cell = $table->addCell(1667);
 $cell->addText("SHIP TO",['bold'=>true],['spaceAfter' => 0, 'spaceBefore'=>0]);
 foreach ($this->shipto as $s) { 
 	$cell->addText($s,[],['spaceAfter' => 0, 'spaceBefore'=>0]);
 }
 
 // (F) INVOICE INFO
-$cell = $table->addCell();
+$cell = $table->addCell(1666);
 foreach ($this->head as $i) {
 	$textrun = $cell->addTextRun(['spaceAfter' => 0, 'spaceBefore'=>0]);
 	$textrun->addText($i[0].": ",['bold'=>true]);
