@@ -65,7 +65,8 @@ $invoicr->set("notes", [
 
 // (C) OUTPUT
 // (C1) CHOOSE A TEMPLATE
-$invoicr->template("apple");
+ $invoicr->template("apple");
+// $invoicr->template("banana");
 // $invoicr->template("blueberry");
 // $invoicr->template("lime");
 // $invoicr->template("simple");
@@ -76,7 +77,7 @@ $invoicr->template("apple");
 // 1 : DISPLAY IN BROWSER
 // 2 : FORCE DOWNLOAD
 // 3 : SAVE ON SERVER
-$invoicr->outputHTML();
+// $invoicr->outputHTML();
 // $invoicr->outputHTML(1);
 // $invoicr->outputHTML(2, "invoice.html");
 // $invoicr->outputHTML(3, __DIR__ . DIRECTORY_SEPARATOR . "invoice.html");
@@ -86,7 +87,7 @@ $invoicr->outputHTML();
 // 1 : DISPLAY IN BROWSER
 // 2 : FORCE DOWNLOAD
 // 3 : SAVE ON SERVER
-// $invoicr->outputPDF();
+$invoicr->outputPDF();
 // $invoicr->outputPDF(1);
 // $invoicr->outputPDF(2, "invoice.pdf");
 // $invoicr->outputPDF(3, __DIR__ . DIRECTORY_SEPARATOR . "invoice.pdf");

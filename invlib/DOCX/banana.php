@@ -17,55 +17,54 @@ for ($i=2;$i<count($this->company);$i++) {
 		["spaceAfter" => 0]
 	);
 }
+
+// (C) INVOICE INFO
 $cell = $table->addCell(2500);
 $cell->addText("SALES INVOICE",
-	["color"=>"ffffff", "bgColor"=>"e671a6", "bold"=>true, "size"=>20],
-	["alignment" => \PhpOffice\PhpWord\SimpleType\Jc::RIGHT]
+	["color"=>"#d31f1f", "bold"=>true, "size"=>20],
+	["spaceAfter" => 10, "spaceBefore"=>0, "alignment" => \PhpOffice\PhpWord\SimpleType\Jc::RIGHT]
 );
-
-// (C) BILL TO
+foreach ($this->head as $i) {
+	$textrun = $cell->addTextRun(["spaceAfter" => 0, "spaceBefore"=>0, "alignment" => \PhpOffice\PhpWord\SimpleType\Jc::RIGHT]);
+	$textrun->addText($i[0].": ",["bold"=>true]);
+	$textrun->addText($i[1]);
+}
 $section->addText(" ",[],["spaceBefore"=>200]);
+
+// (D) BILL TO
 $table = $section->addTable($tableStyle);
-$cell = $table->addRow()->addCell(1667);
-$cell->addText("BILL TO",["bold"=>true,"color"=>"e671a6"],["spaceAfter" => 0, "spaceBefore"=>0]);
+$style = ["bgColor"=>"fff93b"];
+$cell = $table->addRow()->addCell(2500,$style);
+$cell->addText("BILL TO",["bold"=>true],["spaceAfter" => 0, "spaceBefore"=>0]);
 foreach ($this->billto as $b) {
 	$cell->addText($b,[],["spaceAfter" => 0, "spaceBefore"=>0]);
 }
 
-// (D) SHIP TO
-$cell = $table->addCell(1667);
-$cell->addText("SHIP TO",["bold"=>true,"color"=>"e671a6"],["spaceAfter" => 0, "spaceBefore"=>0]);
+// (E) SHIP TO
+$cell = $table->addCell(2500,$style);
+$cell->addText("SHIP TO",["bold"=>true],["spaceAfter" => 0, "spaceBefore"=>0]);
 foreach ($this->shipto as $s) {
 	$cell->addText($s,[],["spaceAfter" => 0, "spaceBefore"=>0]);
 }
 
-// (E) INVOICE INFO
-$cell = $table->addCell(1666);
-foreach ($this->head as $i) {
-	$textrun = $cell->addTextRun(["spaceAfter" => 0, "spaceBefore"=>0]);
-	$textrun->addText($i[0].": ",["bold"=>true,"color"=>"e671a6"]);
-	$textrun->addText($i[1]);
-}
-
 // (F) ITEMS
 $section->addText(" ",[],["spaceBefore"=>200]);
-$style = ["borderBottomSize" => 15, "borderBottomColor" => "FFFFFF", "bgColor"=>"ea6ca9"];
 $table = $section->addTable($tableStyle);
 $table->addRow();
 $cell = $table->addCell(2000, $style);
-$cell->addText("Item",["bold"=>true,"color"=>"FFFFFF"]);
+$cell->addText("Item",["bold"=>true]);
 $cell = $table->addCell(1000, $style);
-$cell->addText("Quantity",["bold"=>true,"color"=>"FFFFFF"]);
+$cell->addText("Quantity",["bold"=>true]);
 $cell = $table->addCell(1000, $style);
-$cell->addText("Unit Price",["bold"=>true,"color"=>"FFFFFF"]);
+$cell->addText("Unit Price",["bold"=>true]);
 $cell = $table->addCell(1000, $style);
-$cell->addText("Amount",["bold"=>true,"color"=>"FFFFFF"]);
-$style = ["borderBottomSize" => 15, "borderBottomColor" => "FFFFFF", "bgColor"=>"fbe3ef"];
+$cell->addText("Amount",["bold"=>true]);
+$style = ["borderBottomSize" => 10, "borderBottomColor" => "f3f3b9", "bgcolor"=>"#ffffe7"];
 foreach ($this->items as $i) {
 	$table->addRow();
 	$cell = $table->addCell(2000, $style);
 	$cell->addText($i[0]);
-	if ($i[1]!="") { $cell->addText($i[1],["size"=>9,"color"=>"ae2e6c"]); }
+	if ($i[1]!="") { $cell->addText($i[1],["size"=>9,"color"=>"757e39"]); }
 	$cell = $table->addCell(1000, $style);
 	$cell->addText($i[2]);
 	$cell = $table->addCell(1000, $style);
@@ -78,18 +77,17 @@ foreach ($this->items as $i) {
 if (count($this->totals)>0) { foreach ($this->totals as $t) {
 	$table->addRow();
 	$cell = $table->addCell(4000, array_merge($style, ["gridSpan" => 3]));
-	$cell->addText($t[0], ["bold"=>true,"color"=>"af3470"]);
+	$cell->addText($t[0], ["color"=>"#c30d0d", "bold"=>true]);
 	$cell = $table->addCell(1000, $style);
-	$cell->addText($t[1], ["bold"=>true,"color"=>"af3470"]);
+	$cell->addText($t[1], ["color"=>"#c30d0d", "bold"=>true]);
 }}
 
 // (H) NOTES
 if (count($this->notes)>0) {
 	$section->addText(" ");
-	$style = ["bgcolor"=>"fbe3ef"];
 	$table = $section->addTable($tableStyle);
-	$cell = $table->addRow()->addCell(5000, $style);
+	$cell = $table->addRow()->addCell(5000);
 	foreach ($this->notes as $n) {
-		$cell->addText($n);
+		$cell->addText($n,[],["spaceAfter" => 0, "spaceBefore"=>0]);
 	}
 }
