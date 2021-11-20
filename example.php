@@ -4,7 +4,7 @@ require "invlib/invoicr.php";
 
 // (B) SET INVOICE DATA
 // (B1) COMPANY INFORMATION
-/* RECOMMENDED TO JUST PERMANENTLY CODE INTO INVOICR/INVOICR.PHP > LINE 13
+/* RECOMMENDED TO JUST PERMANENTLY CODE INTO INVLIB/INVOICR.PHP > (C1)
 $invoicr->set("company", [
 	"http://localhost/code-boxx-logo.png",
 	"D:/http/code-boxx-logo.png",
@@ -77,7 +77,7 @@ $invoicr->set("notes", [
 // 1 : DISPLAY IN BROWSER
 // 2 : FORCE DOWNLOAD
 // 3 : SAVE ON SERVER
-// $invoicr->outputHTML();
+$invoicr->outputHTML();
 // $invoicr->outputHTML(1);
 // $invoicr->outputHTML(2, "invoice.html");
 // $invoicr->outputHTML(3, __DIR__ . DIRECTORY_SEPARATOR . "invoice.html");
@@ -87,7 +87,7 @@ $invoicr->set("notes", [
 // 1 : DISPLAY IN BROWSER
 // 2 : FORCE DOWNLOAD
 // 3 : SAVE ON SERVER
-$invoicr->outputPDF();
+// $invoicr->outputPDF();
 // $invoicr->outputPDF(1);
 // $invoicr->outputPDF(2, "invoice.pdf");
 // $invoicr->outputPDF(3, __DIR__ . DIRECTORY_SEPARATOR . "invoice.pdf");

@@ -17,7 +17,7 @@ class Invoicr {
   private $company = [
     "http://localhost/code-boxx-logo.png", // URL TO COMPANY LOGO, FOR HTML INVOICES
     "D:/http/code-boxx-logo.png", // FILE PATH TO COMPANY LOGO, FOR PDF/DOCX INVOICES
-    "Company Name", 
+    "Company Name",
     "Street Address, City, State, Zip",
     "Phone: xxx-xxx-xxx | Fax: xxx-xxx-xxx",
     "https://your-site.com",
@@ -87,12 +87,12 @@ class Invoicr {
   //  $file : filename
   //  $size : file size (optional)
   function outputDown ($file="invoice.html", $size="") {
-    header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename='.$file);
-    header('Expires: 0');
-    header('Cache-Control: must-revalidate');
-    header('Pragma: public');
-    if (is_numeric($size)) { header('Content-Length: ' . $size); }
+    header("Content-Type: application/octet-stream");
+    header("Content-Disposition: attachment; filename=\"$file\"");
+    header("Expires: 0");
+    header("Cache-Control: must-revalidate");
+    header("Pragma: public");
+    if (is_numeric($size)) { header("Content-Length: $size"); }
   }
 
   // (G) OUTPUTHTML () : OUTPUT IN HTML
@@ -122,7 +122,7 @@ class Invoicr {
 
       // SAVE TO FILE ON SERVER
       case 3:
-        $stream = @fopen($save, 'w');
+        $stream = @fopen($save, "w");
         if (!$stream) {
           exit("Error opening the file " . $save);
         } else {
@@ -158,7 +158,7 @@ class Invoicr {
 
       // FORCE DOWNLOAD
       case 2:
-        $mpdf->Output($save,'D');
+        $mpdf->Output($save, "D");
         break;
 
       // SAVE FILE ON SERVER
@@ -188,8 +188,8 @@ class Invoicr {
       // FORCE DOWNLOAD
       default: case 1:
         $this->outputDown($save);
-        $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($pw, 'Word2007');
-        $objWriter->save('php://output');
+        $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($pw, "Word2007");
+        $objWriter->save("php://output");
         break;
 
       // SAVE FILE ON SERVER
