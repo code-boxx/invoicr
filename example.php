@@ -7,8 +7,8 @@ require "invlib/invoicr.php";
 /* RECOMMENDED TO JUST PERMANENTLY CODE INTO INVOICR/INVOICR.PHP > LINE 13
 $invoicr->set("company", [
 	"http://localhost/code-boxx-logo.png",
-	"D:/http/code-boxx-logo.png", 
-	"Code Boxx", 
+	"D:/http/code-boxx-logo.png",
+	"Code Boxx",
 	"Street Address, City, State, Zip",
 	"Phone: xxx-xxx-xxx | Fax: xxx-xxx-xxx",
 	"https://code-boxx.com",
@@ -26,14 +26,14 @@ $invoicr->set("head", [
 // (B3) BILL TO
 $invoicr->set("billto", [
 	"Customer Name",
-	"Street Address", 
+	"Street Address",
 	"City, State, Zip"
 ]);
 
 // (B4) SHIP TO
 $invoicr->set("shipto", [
 	"Customer Name",
-	"Street Address", 
+	"Street Address",
 	"City, State, Zip"
 ]);
 
@@ -72,9 +72,9 @@ $invoicr->template("apple");
 // $invoicr->template("strawberry");
 
 // (C2) OUTPUT IN HTML
-// DEFAULT : DISPLAY IN BROWSER 
-// 1 : DISPLAY IN BROWSER 
-// 2 : FORCE DOWNLOAD 
+// DEFAULT : DISPLAY IN BROWSER
+// 1 : DISPLAY IN BROWSER
+// 2 : FORCE DOWNLOAD
 // 3 : SAVE ON SERVER
 $invoicr->outputHTML();
 // $invoicr->outputHTML(1);
@@ -82,18 +82,18 @@ $invoicr->outputHTML();
 // $invoicr->outputHTML(3, __DIR__ . DIRECTORY_SEPARATOR . "invoice.html");
 
 // (C3) OUTPUT IN PDF
-// DEFAULT : DISPLAY IN BROWSER 
-// 1 : DISPLAY IN BROWSER 
-// 2 : FORCE DOWNLOAD 
+// DEFAULT : DISPLAY IN BROWSER
+// 1 : DISPLAY IN BROWSER
+// 2 : FORCE DOWNLOAD
 // 3 : SAVE ON SERVER
 // $invoicr->outputPDF();
 // $invoicr->outputPDF(1);
 // $invoicr->outputPDF(2, "invoice.pdf");
 // $invoicr->outputPDF(3, __DIR__ . DIRECTORY_SEPARATOR . "invoice.pdf");
 
-// (C4) OUTPUT IN DOCS
+// (C4) OUTPUT IN DOCX
 // DEFAULT : FORCE DOWNLOAD
-// 1 : FORCE DOWNLOAD 
+// 1 : FORCE DOWNLOAD
 // 2 : SAVE ON SERVER
 // $invoicr->outputDOCX();
 // $invoicr->outputDOCX(1, "invoice.docx");
