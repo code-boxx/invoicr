@@ -46,5 +46,5 @@ SOFTWARE.
 
 
 ## CREDITS
-1) PDF output with MPDF - https://mpdf.github.io//
-2) DOCX output with PHPWORD - https://github.com/PHPOffice/PHPWord
+1) PDF output with MPDF - https://mpdf.github.io/
+2) DOCX output with PHPWORD - https://github.com/PHPOffice/PHPWord/
