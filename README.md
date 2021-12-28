@@ -1,7 +1,9 @@
 ## INVOICR
-
 Invoicr is a free and open-source PHP invoice generator that is capable of churning out HTML, PDF, and DOCX invoices. It may not be the best in the world, but it is simple, fuss-free, and gives developers a quick boost with all the essentials built-in.
+<br><br>
 
+
+## INVOICE TEMPLATE SAMPLES
 <p float="left">
   <img width="250" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-1.png">
   <img width="250" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-2.png">
@@ -14,9 +16,15 @@ Invoicr is a free and open-source PHP invoice generator that is capable of churn
 </p><br>
 
 
+## HOW TO USE & DOCUMENTATION
+1) Edit `invlib/invoicr.php`, change (C1) company information to your own.
+2) That's all. Check out `example.php`.
+
+Please visit https://code-boxx.com/invoicr-php-invoice-generator for more for more!
+<br><br>
+
+
 ## LICENSE
-
-
 Copyright by Code Boxx
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,14 +47,6 @@ SOFTWARE.
 <br><br>
 
 
-## HOW TO USE & DOCUMENTATION
-1) Edit invlib/invoicr.php, change (C1) company information to your own.
-2) That's all. Check out example.php.
-
-Please visit https://code-boxx.com/invoicr-php-invoice-generator for more for more!
-<br><br>
-
-
 ## CREDITS
-PDF output with MPDF - https://mpdf.github.io//
-DOCX output with PHPWORD - https://github.com/PHPOffice/PHPWord
+1) PDF output with MPDF - https://mpdf.github.io//
+2) DOCX output with PHPWORD - https://github.com/PHPOffice/PHPWord
