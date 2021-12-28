@@ -1,6 +1,21 @@
----
+## INVOICR
+
+Invoicr is a free and open-source PHP invoice generator that is capable of churning out HTML, PDF, and DOCX invoices. It may not be the best in the world, but it is simple, fuss-free, and gives developers a quick boost with all the essentials built-in.
+
+<p float="left">
+  <img width="250" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-1.png">
+  <img width="250" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-2.png">
+  <img width="250" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-3.png">
+</p>
+<p float="left">
+  <img width="250" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-4.png">
+  <img width="250" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-5.png">
+  <img width="250" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-6.png">
+</p><br>
+
+
 ## LICENSE
----
+
 
 Copyright by Code Boxx
 
@@ -21,23 +36,17 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+<br><br>
 
 
----
-## HOW TO USE?
----
+## HOW TO USE & DOCUMENTATION
 1) Edit invlib/invoicr.php, change (C1) company information to your own.
 2) That's all. Check out example.php.
 
-
----
-## DOCUMENTATION
----
 Please visit https://code-boxx.com/invoicr-php-invoice-generator for more for more!
+<br><br>
 
 
----
 ## CREDITS
----
 PDF output with MPDF - https://mpdf.github.io//
 DOCX output with PHPWORD - https://github.com/PHPOffice/PHPWord
