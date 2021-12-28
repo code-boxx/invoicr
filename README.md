@@ -20,7 +20,7 @@ Invoicr is a free and open-source PHP invoice generator that is capable of churn
 1) Edit `invlib/invoicr.php`, change (C1) company information to your own.
 2) That's all. Check out `example.php`.
 
-Please visit https://code-boxx.com/invoicr-php-invoice-generator for more for more!
+Please visit https://code-boxx.com/invoicr-php-invoice-generator for more!
 <br><br>
 
 
