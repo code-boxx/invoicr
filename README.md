@@ -4,12 +4,12 @@ Invoicr is a free and open-source PHP invoice generator that is capable of churn
 
 ## :camera: SCREENSHOTS & INVOICE TEMPLATES
 <p float="left">
-  <img width="250" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-1.png">
-  <img width="250" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-2.png">
-  <img width="250" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-3.png">
-  <img width="250" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-4.png">
-  <img width="250" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-5.png">
-  <img width="250" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-6.png">
+  <img width="250" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-1.png">
+  <img width="250" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-2.png">
+  <img width="250" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-3.png">
+  <img width="250" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-4.png">
+  <img width="250" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-5.png">
+  <img width="250" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-6.png">
 </p><br>
 
 ## :bulb: HOW TO USE
