@@ -2,7 +2,7 @@
 Invoicr is a free and open-source PHP invoice generator that is capable of churning out HTML, PDF, and DOCX invoices. It is a simple fuss-free package that will give developers a quick boost with their invoice generation needs.
 <br><br>
 
-## INVOICE TEMPLATE SAMPLES
+## :camera: SCREENSHOTS & INVOICE TEMPLATES
 <p float="left">
   <img width="250" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-1.png">
   <img width="250" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-2.png">
@@ -12,14 +12,19 @@ Invoicr is a free and open-source PHP invoice generator that is capable of churn
   <img width="250" style="inline-block" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-6.png">
 </p><br>
 
-## HOW TO USE & DOCUMENTATION
+## :bulb: HOW TO USE
 1) Edit `invlib/invoicr.php`, change (C1) company information to your own.
 2) That's all. Check out `example.php`.
+<br><br>
+
+## :link: DOCUMENTATION & CREDITS
+1) PDF output with MPDF - https://mpdf.github.io/
+2) DOCX output with PHPWORD - https://github.com/PHPOffice/PHPWord/
 
 Please visit https://code-boxx.com/invoicr-php-invoice-generator for more!
 <br><br>
 
-## LICENSE
+## :newspaper: LICENSE
 Copyright by Code Boxx
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,8 +44,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-<br><br>
-
-## CREDITS
-1) PDF output with MPDF - https://mpdf.github.io/
-2) DOCX output with PHPWORD - https://github.com/PHPOffice/PHPWord/
