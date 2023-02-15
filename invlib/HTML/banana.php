@@ -1,51 +1,50 @@
-<?php
-// (A) HTML HEADER & STYLES
-$this->data = "<!DOCTYPE html><html><head><style>".
-"html,body{font-family:sans-serif}#invoice{max-width:800px;margin:0 auto}#company,#billship{margin-bottom:30px}#billship,#company,#items{width:100%;border-collapse:collapse}#company td,#billship td,#items td,#items th{padding:10px}#company td{vertical-align:top}#company img{max-width:180px;height:auto}#co-info{font-size:.95em;color:#888;margin-top:10px}#co-right{text-align:right}#bigi{font-size:28px;font-weight:700;color:#d31f1f}#invinfo{margin-top:10px}#billship td{width:50%;background:#fff93b}#items th{background:#fff93b;text-align:left}#items td{border-bottom:1px solid #f3f3b9;background:#ffffe7}.idesc{color:#757e39}.ttl{font-weight:700;color:#c30d0d}.right{text-align:right}#notes{margin-top:30px;font-size:.95em}".
-"</style></head><body><div id='invoice'>";
+<!-- (A) HEADER -->
+<table id="company"><tr>
+	<td>
+		<img src="<?=$this->company[0]?>">
+		<div id="co-info"><?php
+			for ($i=2; $i<count($this->company); $i++) { echo "{$this->company[$i]}<br>"; }
+		?>
+	  </div>
+	</td>
+	<td id="co-right">
+		<div id="bigi">INVOICE</div>
+		<div id="invinfo"><?php
+			foreach ($this->head as $i) { echo "<strong>{$i[0]}</strong> {$i[1]}<br>"; }
+	  ?></div>
+	</td>
+</tr></table>
 
-// (B) COMPANY
-$this->data .= "<table id='company'><tr><td><img src='".$this->company[0]."'/><div id='co-info'>";
-for ($i=2;$i<count($this->company);$i++) {
-	$this->data .= $this->company[$i]."<br/>";
-}
-$this->data .= "</div></td><td id='co-right'><div id='bigi'>INVOICE</div><div id='invinfo'>";
+<!-- (B) BILL TO & SHIP TO -->
+<table id="billship"><tr>
+	<td>
+		<strong>BILL TO</strong><br>
+		<?php foreach ($this->billto as $b) { echo "$b<br>"; } ?>
+	</td>
+	<td>
+		<strong>SHIP TO</strong><br>
+		<?php foreach ($this->shipto as $s) { echo "$s<br>"; } ?>
+  </td>
+</tr></table>
 
-// (C) INVOICE INFO
-foreach ($this->head as $i) {
-	$this->data .= "<strong>$i[0]:</strong> $i[1]<br>";
-}
-$this->data .= "</div></td></tr></table>";
-
-// (D) BILL TO
-$this->data .= "<table id='billship'><tr><td><strong>BILL TO</strong><br>";
-foreach ($this->billto as $b) { $this->data .= $b."<br>"; }
-
-// (E) SHIP TO
-$this->data .= "</td><td><strong>SHIP TO</strong><br>";
-foreach ($this->shipto as $s) { $this->data .= $s."<br>"; }
-$this->data .= "</td></tr></table>";
-
-// (F) ITEMS
-$this->data .= "<table id='items'><tr><th>Item</th><th>Quantity</th><th>Unit Price</th><th>Amount</th></tr>";
-foreach ($this->items as $i) {
-	$this->data .= "<tr><td><div>".$i[0]."</div>".($i[1]==""?"":"<small class='idesc'>$i[1]</small>")."</td><td>".$i[2]."</td><td>".$i[3]."</td><td>".$i[4]."</td></tr>";
-}
-
-// (G) TOTALS
-if (count($this->totals)>0) { foreach ($this->totals as $t) {
-	$this->data .= "<tr class='ttl'><td class='right' colspan='3'>$t[0]</td><td>$t[1]</td></tr>";
-}}
-$this->data .= "</table>";
-
-// (H) NOTES
-if (count($this->notes)>0) {
-	$this->data .= "<div id='notes'>";
-	foreach ($this->notes as $n) {
-		$this->data .= $n."<br>";
+<!-- (C) ITEMS & TOTALS -->
+<table id="items">
+	<tr><th>Item</th><th>Quantity</th><th>Unit Price</th><th>Amount</th></tr>
+	<?php
+	foreach ($this->items as $i) {
+		echo "<tr><td><div>{$i[0]}</div>";
+		if ($i[1]!="") { echo "<small class='idesc'>$i[1]</small>"; }
+		echo "</td><td>{$i[2]}</td><td>{$i[3]}</td><td>{$i[4]}</td></tr>";
 	}
-	$this->data .= "</div>";
-}
+	if (count($this->totals)>0) { foreach ($this->totals as $t) {
+		echo "<tr class='ttl'><td class='right' colspan='3'>{$t[0]}</td><td>{$t[1]}</td></tr>";
+	}}
+	?>
+</table>
 
-// (I) CLOSE
-$this->data .= "</div></body></html>";
+<!-- (D) NOTES -->
+<?php if (count($this->notes)>0) { ?>
+<div id="notes"><?php
+	foreach ($this->notes as $n) { echo "$n<br>"; }
+?></div>
+<?php } ?>

@@ -1,6 +1,6 @@
 <?php
 class Invoicr {
-  /*** [I] INVOICR DATA ***/
+  /*** [PART 1] INVOICR DATA ***/
   // (A) FILE PATHS
   private $pathI = __DIR__ . DIRECTORY_SEPARATOR;
   private $pathV = __DIR__ . DIRECTORY_SEPARATOR . "vendor" . DIRECTORY_SEPARATOR;
@@ -77,7 +77,7 @@ class Invoicr {
     $this->data = null;
   }
 
-  /*** [II] INVOICR TEMPLATE + OUTPUT ***/
+  /*** [PART 2] INVOICR TEMPLATE + OUTPUT ***/
   // (E) TEMPLATE () : USE THE SPECIFIED TEMPLATE
   function template ($template="simple") {
     $this->template = $template;
@@ -100,28 +100,54 @@ class Invoicr {
   //          2 = force download (provide the file name in $save)
   //          3 = save on server (provide the absolute path and file name in $save)
   //  $save : output filename
-  function outputHTML ($mode=1, $save="invoice.html") {
-    // (G1) LOAD TEMPLATE FILE
-    $file = $this->pathH . $this->template . ".php";
-    if (!file_exists($file)) { exit("$file not found."); }
-    $this->data = "";
-    require $file;
+  function outputHTML ($mode=1, $save=null) {
+    // (G1) TEMPLATE FILE CHECK
+    $fileCSS = $this->pathH . $this->template . ".css";
+    $fileHTML = $this->pathH . $this->template . ".php";
+    if (!file_exists($fileCSS)) { exit("$fileCSS not found."); }
+    if (!file_exists($fileHTML)) { exit("$fileHTML not found."); }
 
-    // (G2) OUTPUT HTML
+    // (G2) GENERATE HTML INTO BUFFER
+    ob_start(); ?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style><?php readfile($fileCSS); ?></style>
+    <?php if ($mode==4) { ?>
+    <script src="invlib/html2canvas.min.js"></script>
+    <script>window.onload= () => html2canvas(document.getElementById("invoice")).then(canvas => {
+      let a = document.createElement("a");
+      <?php if ($save===null) { $save = "invoice-" . strtotime("now") . ".png"; } ?>
+      a.download = "<?=$save?>";
+      a.href = canvas.toDataURL("image/png");
+      a.click();
+    });</script>
+    <?php } ?>
+  </head>
+  <body><div id="invoice"><?php require $fileHTML; ?></div></body>
+</html>
+    <?php
+    $this->data = ob_get_contents();
+    ob_end_clean();
+
+    // (G3) OUTPUT HTML
     switch ($mode) {
-      // OUTPUT ON SCREEN
-      default: case 1:
+      // (G3-1) OUTPUT ON SCREEN (SAVE TO PNG)
+      default: case 1: case 4:
         echo $this->data;
         break;
 
-      // FORCE DOWNLOAD
+      // (G3-2) FORCE DOWNLOAD
       case 2:
+        if ($save===null) { $save = "invoice-" . strtotime("now") . ".html"; }
         $this->outputDown($save, strlen($this->data));
         echo $this->data;
         break;
 
-      // SAVE TO FILE ON SERVER
+      // (G3-3) SAVE TO FILE ON SERVER
       case 3:
+        if ($save===null) { $save = "invoice-" . strtotime("now") . ".html"; }
         $stream = @fopen($save, "w");
         if (!$stream) {
           exit("Error opening the file " . $save);
@@ -151,17 +177,17 @@ class Invoicr {
 
     // (H3) OUTPUT
     switch ($mode) {
-      // SHOW IN BROWSER
+      // (H3-1) SHOW IN BROWSER
       default: case 1:
         $mpdf->Output();
         break;
 
-      // FORCE DOWNLOAD
+      // (H3-2) FORCE DOWNLOAD
       case 2:
         $mpdf->Output($save, "D");
         break;
 
-      // SAVE FILE ON SERVER
+      // (H3-3) SAVE FILE ON SERVER
       case 3:
         $mpdf->Output($save);
         break;
@@ -170,7 +196,7 @@ class Invoicr {
 
   // (I) OUTPUTDOCX() : OUTPUT IN DOCX
   //  $mode : 1 = force download (provide the file name in $save)
-  //         2 = save on server (provide the absolute path and file name in $save)
+  //          2 = save on server (provide the absolute path and file name in $save)
   //  $save : output filename
   function outputDOCX ($mode=1, $save="invoice.docx") {
     // (I1) LOAD LIBRARY
@@ -185,18 +211,20 @@ class Invoicr {
 
     // (I3) OUTPUT
     switch ($mode) {
-      // FORCE DOWNLOAD
+      // (I3-1) FORCE DOWNLOAD
       default: case 1:
         $this->outputDown($save);
         $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($pw, "Word2007");
         $objWriter->save("php://output");
         break;
 
-      // SAVE FILE ON SERVER
+      // (I3-2) SAVE FILE ON SERVER
       case 2:
         $pw->save($save, "Word2007");
         break;
     }
   }
 }
+
+// (J) "START" INVOICR
 $invoicr = new Invoicr();
