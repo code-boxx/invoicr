@@ -99,6 +99,7 @@ class Invoicr {
   //  $mode : 1 = show in browser
   //          2 = force download (provide the file name in $save)
   //          3 = save on server (provide the absolute path and file name in $save)
+  //          4 = show in browser + save screenshot as png
   //  $save : output filename
   function outputHTML ($mode=1, $save=null) {
     // (G1) TEMPLATE FILE CHECK
