@@ -18,11 +18,15 @@ Invoicr is a free and open-source PHP invoice generator that is capable of churn
 <br><br>
 
 ## :link: DOCUMENTATION & CREDITS
+Please visit https://code-boxx.com/invoicr-php-invoice-generator for more!
+
 1) PDF output with MPDF - https://mpdf.github.io/
 2) DOCX output with PHPWORD - https://github.com/PHPOffice/PHPWord/
 3) PNG output via HTML screenshot with html2canvas - https://html2canvas.hertzen.com/
+<br><br>
 
-Please visit https://code-boxx.com/invoicr-php-invoice-generator for more!
+## :star: SUPPORT
+Like this project? Just give it a star. That will indirectly help grow my blog a little bit. :wink:
 <br><br>
 
 ## :newspaper: LICENSE
