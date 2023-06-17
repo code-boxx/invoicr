@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb650f237c2d3f24cf11ffce2e6d98db3
+class ComposerStaticInitdf9a33ab8df9bd8a2e011df2177d34d4
 {
     public static $files = array (
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
@@ -23,15 +23,12 @@ class ComposerStaticInitb650f237c2d3f24cf11ffce2e6d98db3
         ),
         'M' => 
         array (
+            'Mpdf\\PsrLogAwareTrait\\' => 22,
             'Mpdf\\' => 5,
         ),
         'L' => 
         array (
             'Laminas\\Escaper\\' => 16,
-        ),
-        'H' => 
-        array (
-            'Http\\Message\\' => 13,
         ),
         'D' => 
         array (
@@ -56,6 +53,10 @@ class ComposerStaticInitb650f237c2d3f24cf11ffce2e6d98db3
         array (
             0 => __DIR__ . '/..' . '/phpoffice/phpword/src/PhpWord',
         ),
+        'Mpdf\\PsrLogAwareTrait\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mpdf/psr-log-aware-trait/src',
+        ),
         'Mpdf\\' => 
         array (
             0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
@@ -63,10 +64,6 @@ class ComposerStaticInitb650f237c2d3f24cf11ffce2e6d98db3
         'Laminas\\Escaper\\' => 
         array (
             0 => __DIR__ . '/..' . '/laminas/laminas-escaper/src',
-        ),
-        'Http\\Message\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/php-http/message-factory/src',
         ),
         'DeepCopy\\' => 
         array (
@@ -81,9 +78,9 @@ class ComposerStaticInitb650f237c2d3f24cf11ffce2e6d98db3
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitb650f237c2d3f24cf11ffce2e6d98db3::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitb650f237c2d3f24cf11ffce2e6d98db3::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitb650f237c2d3f24cf11ffce2e6d98db3::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitdf9a33ab8df9bd8a2e011df2177d34d4::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitdf9a33ab8df9bd8a2e011df2177d34d4::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitdf9a33ab8df9bd8a2e011df2177d34d4::$classMap;
 
         }, null, ClassLoader::class);
     }
