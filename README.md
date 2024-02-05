@@ -10,11 +10,17 @@ Invoicr is a free and open-source PHP invoice generator that is capable of churn
   <img width="250" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-4.png">
   <img width="250" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-5.png">
   <img width="250" src="https://code-boxx.com/wp-content/uploads/2021/11/illus-invoicr-6.png">
-</p><br>
+</p>
+<br><br>
 
 ## :bulb: HOW TO USE
 1) Edit `invlib/invoicr.php`, change (C1) company information to your own.
 2) That's all. Check out `example.php`.
+<br><br>
+
+## :star: SUPPORT
+1) Just give this project a star. That will indirectly drive more traffic a little bit. :wink:
+2) [Sponsor this project](https://github.com/sponsors/code-boxx). Even a small one time amount helps.
 <br><br>
 
 ## :link: DOCUMENTATION & CREDITS
@@ -23,10 +29,6 @@ Please visit https://code-boxx.com/invoicr-php-invoice-generator for more!
 1) PDF output with MPDF - https://mpdf.github.io/
 2) DOCX output with PHPWORD - https://github.com/PHPOffice/PHPWord/
 3) PNG output via HTML screenshot with html2canvas - https://html2canvas.hertzen.com/
-<br><br>
-
-## :star: SUPPORT
-Like this project? Just give it a star. That will indirectly help grow my blog a little bit. :wink:
 <br><br>
 
 ## :newspaper: LICENSE

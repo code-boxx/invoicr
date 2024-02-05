@@ -90,6 +90,13 @@ class Settings
     private static $pdfRendererName;
 
     /**
+     * Options used for rendering PDF files.
+     *
+     * @var array
+     */
+    private static $pdfRendererOptions = [];
+
+    /**
      * Directory Path to the external Library used for rendering PDF files.
      *
      * @var null|string
@@ -123,6 +130,13 @@ class Settings
      * @var string
      */
     private static $defaultPaper = self::DEFAULT_PAPER;
+
+    /**
+     * Is RTL by default ?
+     *
+     * @var ?bool
+     */
+    private static $defaultRtl;
 
     /**
      * The user defined temporary directory.
@@ -224,6 +238,22 @@ class Settings
     public static function getPdfRendererPath(): ?string
     {
         return self::$pdfRendererPath;
+    }
+
+    /**
+     * Set options of the external library for rendering PDF files.
+     */
+    public static function setPdfRendererOptions(array $options): void
+    {
+        self::$pdfRendererOptions = $options;
+    }
+
+    /**
+     * Return the PDF Rendering Options.
+     */
+    public static function getPdfRendererOptions(): array
+    {
+        return self::$pdfRendererOptions;
     }
 
     /**
@@ -362,6 +392,16 @@ class Settings
         }
 
         return false;
+    }
+
+    public static function setDefaultRtl(?bool $defaultRtl): void
+    {
+        self::$defaultRtl = $defaultRtl;
+    }
+
+    public static function isDefaultRtl(): ?bool
+    {
+        return self::$defaultRtl;
     }
 
     /**

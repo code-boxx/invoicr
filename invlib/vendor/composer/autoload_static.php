@@ -4,10 +4,11 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitdf9a33ab8df9bd8a2e011df2177d34d4
+class ComposerStaticInit5c0ac6ce5fe508ec8c3566d7425c6e77
 {
     public static $files = array (
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        'db356362850385d08a5381de2638b5fd' => __DIR__ . '/..' . '/mpdf/mpdf/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -15,20 +16,22 @@ class ComposerStaticInitdf9a33ab8df9bd8a2e011df2177d34d4
         array (
             'setasign\\Fpdi\\' => 14,
         ),
+        'T' => 
+        array (
+            'Tests\\PhpOffice\\Math\\' => 21,
+        ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'PhpOffice\\PhpWord\\' => 18,
+            'PhpOffice\\Math\\' => 15,
         ),
         'M' => 
         array (
             'Mpdf\\PsrLogAwareTrait\\' => 22,
+            'Mpdf\\PsrHttpMessageShim\\' => 24,
             'Mpdf\\' => 5,
-        ),
-        'L' => 
-        array (
-            'Laminas\\Escaper\\' => 16,
         ),
         'D' => 
         array (
@@ -40,6 +43,10 @@ class ComposerStaticInitdf9a33ab8df9bd8a2e011df2177d34d4
         'setasign\\Fpdi\\' => 
         array (
             0 => __DIR__ . '/..' . '/setasign/fpdi/src',
+        ),
+        'Tests\\PhpOffice\\Math\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpoffice/math/tests/Math',
         ),
         'Psr\\Log\\' => 
         array (
@@ -53,17 +60,21 @@ class ComposerStaticInitdf9a33ab8df9bd8a2e011df2177d34d4
         array (
             0 => __DIR__ . '/..' . '/phpoffice/phpword/src/PhpWord',
         ),
+        'PhpOffice\\Math\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpoffice/math/src/Math',
+        ),
         'Mpdf\\PsrLogAwareTrait\\' => 
         array (
             0 => __DIR__ . '/..' . '/mpdf/psr-log-aware-trait/src',
         ),
+        'Mpdf\\PsrHttpMessageShim\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mpdf/psr-http-message-shim/src',
+        ),
         'Mpdf\\' => 
         array (
             0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
-        ),
-        'Laminas\\Escaper\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/laminas/laminas-escaper/src',
         ),
         'DeepCopy\\' => 
         array (
@@ -78,9 +89,9 @@ class ComposerStaticInitdf9a33ab8df9bd8a2e011df2177d34d4
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitdf9a33ab8df9bd8a2e011df2177d34d4::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitdf9a33ab8df9bd8a2e011df2177d34d4::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitdf9a33ab8df9bd8a2e011df2177d34d4::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit5c0ac6ce5fe508ec8c3566d7425c6e77::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit5c0ac6ce5fe508ec8c3566d7425c6e77::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit5c0ac6ce5fe508ec8c3566d7425c6e77::$classMap;
 
         }, null, ClassLoader::class);
     }

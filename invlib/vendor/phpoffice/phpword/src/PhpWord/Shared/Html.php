@@ -109,11 +109,12 @@ class Html
         if (XML_ELEMENT_NODE == $node->nodeType) {
             $attributes = $node->attributes; // get all the attributes(eg: id, class)
 
+            $bidi = ($attributes['dir'] ?? '') === 'rtl';
             foreach ($attributes as $attribute) {
                 $val = $attribute->value;
                 switch (strtolower($attribute->name)) {
                     case 'align':
-                        $styles['alignment'] = self::mapAlign(trim($val));
+                        $styles['alignment'] = self::mapAlign(trim($val), $bidi);
 
                         break;
                     case 'lang':
@@ -271,7 +272,7 @@ class Html
      * Parse child nodes.
      *
      * @param DOMNode $node
-     * @param \PhpOffice\PhpWord\Element\AbstractContainer $element
+     * @param \PhpOffice\PhpWord\Element\AbstractContainer|Row|Table $element
      * @param array $styles
      * @param array $data
      */
@@ -680,6 +681,7 @@ class Html
 
     protected static function parseStyleDeclarations(array $selectors, array $styles)
     {
+        $bidi = ($selectors['direction'] ?? '') === 'rtl';
         foreach ($selectors as $property => $value) {
             switch ($property) {
                 case 'text-decoration':
@@ -696,7 +698,7 @@ class Html
 
                     break;
                 case 'text-align':
-                    $styles['alignment'] = self::mapAlign($value);
+                    $styles['alignment'] = self::mapAlign($value, $bidi);
 
                     break;
                 case 'display':
@@ -705,6 +707,7 @@ class Html
                     break;
                 case 'direction':
                     $styles['rtl'] = $value === 'rtl';
+                    $styles['bidi'] = $value === 'rtl';
 
                     break;
                 case 'font-size':
@@ -770,6 +773,14 @@ class Html
                         $tValue = true;
                     }
                     $styles['italic'] = $tValue;
+
+                    break;
+                case 'font-variant':
+                    $tValue = false;
+                    if (preg_match('#small-caps#', $value)) {
+                        $tValue = true;
+                    }
+                    $styles['smallCaps'] = $tValue;
 
                     break;
                 case 'margin':
@@ -957,7 +968,10 @@ class Html
                 $tmpDir = Settings::getTempDir() . '/';
                 $match = [];
                 preg_match('/.+\.(\w+)$/', $src, $match);
-                $src = $tmpDir . uniqid() . '.' . $match[1];
+                $src = $tmpDir . uniqid();
+                if (isset($match[1])) {
+                    $src .= '.' . $match[1];
+                }
 
                 $ifp = fopen($src, 'wb');
 
@@ -1015,20 +1029,21 @@ class Html
      * Transforms a HTML/CSS alignment into a \PhpOffice\PhpWord\SimpleType\Jc.
      *
      * @param string $cssAlignment
+     * @param bool $bidi
      *
      * @return null|string
      */
-    protected static function mapAlign($cssAlignment)
+    protected static function mapAlign($cssAlignment, $bidi)
     {
         switch ($cssAlignment) {
             case 'right':
-                return Jc::END;
+                return $bidi ? Jc::START : Jc::END;
             case 'center':
                 return Jc::CENTER;
             case 'justify':
                 return Jc::BOTH;
             default:
-                return Jc::START;
+                return $bidi ? Jc::END : Jc::START;
         }
     }
 
