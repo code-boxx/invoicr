@@ -13,9 +13,11 @@ Invoicr is a free and open-source PHP invoice generator that is capable of churn
 </p>
 <br><br>
 
-## :bulb: HOW TO USE
+## :bulb: "INSTALLATION" AND REQUIREMENTS
+There is no "installation", only a small hassle:
 1) Edit `invlib/invoicr.php`, change (C1) company information to your own.
 2) That's all. Check out `example.php`.
+3) MPDF requires GD extension to work properly.
 <br><br>
 
 ## :star: SUPPORT
